@@ -1,4 +1,8 @@
 FROM python:3.8-alpine
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+ && pip install cython \
+ && apk del .build-deps
+ 
 MAINTAINER Philip Mehew
 ENV PYTHONUNBUFFERED 1
 
